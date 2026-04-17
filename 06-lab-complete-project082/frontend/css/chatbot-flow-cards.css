@@ -1,0 +1,292 @@
+/* Inline “Card UI” forms inside bot bubbles */
+.flow-card {
+  margin-top: 12px;
+  position: relative;
+  z-index: 1;
+  width: fit-content;
+  max-width: 100%;
+  min-width: min(100%, 16rem);
+  border-radius: 16px;
+  border: 1px solid rgba(46, 125, 50, 0.22);
+  background: linear-gradient(165deg, rgba(255, 255, 255, 0.96) 0%, rgba(232, 245, 233, 0.55) 100%);
+  box-shadow: 0 8px 26px rgba(15, 35, 65, 0.08);
+  padding: 14px 14px 12px;
+  box-sizing: border-box;
+}
+
+/* Slide / Quiz / Flash (+ meta PDF): lấp phần còn lại sau avatar, không co như max-content */
+.flow-card.flow-card-flow-wide {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.flow-card-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--green-dark);
+  margin: 0 0 10px;
+  letter-spacing: 0.01em;
+}
+
+.flow-field {
+  margin-bottom: 10px;
+}
+
+.flow-field:last-of-type {
+  margin-bottom: 0;
+}
+
+.flow-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.flow-hint {
+  font-size: 11px;
+  color: var(--muted);
+  margin: 3px 0 0;
+  line-height: 1.35;
+}
+
+.flow-input,
+.flow-select,
+.flow-textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 10px;
+  border: 1px solid rgba(16, 35, 58, 0.14);
+  padding: 8px 10px;
+  font-size: 13px;
+  font-family: inherit;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.95);
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.flow-input:focus,
+.flow-select:focus,
+.flow-textarea:focus {
+  border-color: rgba(46, 125, 50, 0.55);
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.18);
+}
+
+.flow-textarea {
+  min-height: 72px;
+  resize: vertical;
+}
+
+.flow-row-3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+@media (max-width: 520px) {
+  .flow-row-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.flow-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px dashed rgba(46, 125, 50, 0.2);
+}
+
+.flow-skip-confirm {
+  margin-top: 10px;
+  padding: 10px 10px 8px;
+  border-radius: 12px;
+  background: rgba(255, 249, 196, 0.55);
+  border: 1px solid rgba(189, 147, 0, 0.35);
+}
+
+.flow-skip-text {
+  margin: 0 0 10px;
+  font-size: 13px;
+  line-height: 1.45;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.flow-skip-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.flow-primary-btn {
+  border: 0;
+  border-radius: 12px;
+  padding: 9px 16px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  color: #fff;
+  background: linear-gradient(135deg, var(--green), var(--green-dark));
+  box-shadow: 0 6px 16px rgba(46, 125, 50, 0.25);
+  transition: opacity 0.15s, transform 0.12s;
+}
+
+.flow-primary-btn:hover:not(:disabled) {
+  opacity: 0.95;
+  transform: translateY(-1px);
+}
+
+.flow-primary-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.flow-secondary-btn {
+  border: 1px solid rgba(16, 35, 58, 0.16);
+  border-radius: 12px;
+  padding: 9px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.flow-secondary-btn:hover:not(:disabled) {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.flow-upload-zone {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+}
+
+.flow-file-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.flow-file-name {
+  font-size: 12px;
+  color: var(--muted);
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.flow-err {
+  font-size: 12px;
+  font-weight: 600;
+  color: #c62828;
+  margin-top: 6px;
+}
+
+.flow-radio-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+}
+
+.flow-radio {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--text);
+  cursor: pointer;
+  user-select: none;
+}
+
+.flow-radio input {
+  accent-color: var(--green-dark);
+}
+
+.bubble.bot.bubble-has-flow-card {
+  max-width: min(72%, calc(100% - 44px));
+}
+
+/* Form slide/quiz/flash trong bubble: 2/3 chiều ngang hàng chat (trừ full set) */
+.msg-row.bot > .bubble.bot.bubble-has-flow-card-wide {
+  flex: 0 1 auto;
+  min-width: 0;
+  width: calc(100% * 2 / 3);
+  max-width: calc(100% - 44px);
+}
+
+/* Form card on its own row (not nested inside a glass bubble) */
+.msg-flow-card-shell {
+  flex: 0 1 auto;
+  align-self: flex-start;
+  min-width: 0;
+  width: max-content;
+  max-width: min(72%, calc(100% - 44px));
+}
+
+.msg-flow-card-shell.msg-flow-card-shell-wide {
+  flex: 0 1 auto;
+  align-self: flex-start;
+  min-width: 0;
+  width: calc(100% * 2 / 3);
+  max-width: calc(100% - 44px);
+}
+
+.msg-flow-card-shell .flow-card {
+  margin-top: 0;
+}
+
+.msg-row.bot.msg-row-flow-card {
+  margin-top: 6px;
+  margin-bottom: 12px;
+}
+
+.flow-autofill-btn {
+  position: absolute !important;
+  top: 10px !important;
+  right: 12px !important;
+  left: auto !important;
+  width: 32px;
+  height: 32px;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: none !important;
+  background: var(--green) !important;
+  color: #ffffff !important;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  padding: 0;
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+  z-index: 100 !important;
+}
+
+.flow-autofill-btn:hover {
+  background: var(--green-dark) !important;
+  transform: translateY(-2px) scale(1.1);
+  box-shadow: 0 6px 20px rgba(46, 125, 50, 0.4);
+}
+
+.flow-autofill-btn:active {
+  transform: translateY(0) scale(1);
+}
+
+.flow-autofill-btn svg {
+  width: 16px;
+  height: 16px;
+}

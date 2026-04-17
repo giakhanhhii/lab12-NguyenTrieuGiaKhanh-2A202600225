@@ -1,0 +1,29 @@
+<svg viewBox="0 0 200 116" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="forestGrad4" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fff9c4" />
+      <stop offset="35%" stop-color="#aed581" />
+      <stop offset="100%" stop-color="#2e7d32" />
+    </linearGradient>
+    <linearGradient id="frameSky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#b3e5fc" />
+      <stop offset="100%" stop-color="#81c784" />
+    </linearGradient>
+  </defs>
+  <rect width="200" height="116" fill="url(#forestGrad4)" />
+  <polygon points="0,116 35,72 68,116" fill="#1b5e20" opacity="0.25" />
+  <polygon points="140,116 170,68 200,116" fill="#1b5e20" opacity="0.28" />
+  <!-- Frame / canvas -->
+  <rect x="54" y="18" width="92" height="82" rx="10" fill="#5d4037" />
+  <rect x="58" y="22" width="84" height="70" rx="6" fill="url(#frameSky)" stroke="#33691e" stroke-width="1" />
+  <!-- Scene: mountains + trees -->
+  <polygon points="58,88 78,58 98,88" fill="#388e3c" />
+  <polygon points="88,92 110,52 132,92" fill="#2e7d32" />
+  <polygon points="118,90 138,62 158,90" fill="#43a047" />
+  <circle cx="128" cy="38" r="10" fill="#fff9c4" opacity="0.95" />
+  <!-- AI sparkle -->
+  <path d="M44 34 L46 28 L48 34 L54 36 L48 38 L46 44 L44 38 L38 36 Z" fill="#fffde7" opacity="0.95" />
+  <path d="M158 26 L159.5 22 L161 26 L165 27 L161 28 L159.5 32 L158 28 L154 27 Z" fill="#fff9c4" opacity="0.9" />
+  <circle cx="168" cy="78" r="2" fill="#fff" opacity="0.85" />
+  <circle cx="32" cy="88" r="1.5" fill="#fff" opacity="0.7" />
+</svg>

@@ -1,0 +1,230 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Nunito', var(--font-sans), sans-serif;
+  }
+
+  body,
+  html {
+    height: 100%;
+    margin: 0;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
+
+  .forest-page {
+    min-height: 100vh;
+    width: 100%;
+    background: linear-gradient(160deg, #c8e6c9 0%, #a5d6a7 20%, #81c784 40%, #b2dfdb 70%, #e0f2f1 100%);
+    padding: 0 0 64px 0;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .forest-page::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+    background: linear-gradient(180deg, transparent, rgba(27, 94, 32, 0.13));
+    pointer-events: none;
+  }
+
+  .hero-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 60px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .headline-area {
+    text-align: center;
+    padding-top: 0;
+    width: 100%;
+  }
+
+  .headline-area h1 {
+    font-size: 56px;
+    font-weight: 800;
+    color: #1b5e20;
+    letter-spacing: -1.5px;
+    line-height: 1.1;
+    margin-bottom: 12px;
+    text-shadow: 0 2px 8px rgba(255, 255, 255, 0.3);
+  }
+
+  .headline-area p {
+    font-size: 22px;
+    color: #33691e;
+    font-weight: 600;
+  }
+
+  .cards-row {
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    padding: 60px 48px;
+    flex-wrap: wrap;
+    align-items: stretch;
+  }
+
+  .card {
+    background: #fff;
+    border-radius: 24px;
+    padding: 0 0 28px 0;
+    width: 280px;
+    flex: 0 1 280px;
+    box-shadow: 0 10px 30px rgba(27, 94, 32, 0.12);
+    overflow: hidden;
+    transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(27, 94, 32, 0.18);
+  }
+
+  .card-img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    display: block;
+    border-radius: 24px 24px 0 0;
+  }
+
+  .card-body {
+    padding: 20px 20px 0 20px;
+  }
+
+  .card-title {
+    font-size: 20px;
+    font-weight: 800;
+    color: #1b5e20;
+    margin-bottom: 8px;
+  }
+
+  .card-desc {
+    font-size: 14.5px;
+    color: #558b2f;
+    font-weight: 500;
+    line-height: 1.6;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 9px;
+    border-radius: 999px;
+    padding: 3px 11px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+  }
+
+  .badge-recommend {
+    background: #e8f5e9;
+    color: #2e7d32;
+    border: 1.5px solid #a5d6a7;
+  }
+
+  .badge-new {
+    background: #f1f8e9;
+    color: #558b2f;
+    border: 1.5px solid #c5e1a5;
+  }
+
+  /* Decorative trees */
+  .trees-bg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 120px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .cards-row,
+  .hero-area {
+    position: relative;
+    z-index: 1;
+  }
+</style>
+
+<div class="forest-page">
+  <img class="trees-bg" src="svg/trees-bg.svg" alt="" />
+
+  <div class="hero-area">
+    <!-- Headline -->
+    <div class="headline-area">
+      <h1>Teachly</h1>
+      <p>Bạn muốn bắt đầu như thế nào?</p>
+    </div>
+  </div>
+
+  <!-- Cards -->
+  <div class="cards-row">
+    <!-- Card 1: Tạo -->
+    <a class="card" href="chatbot_ui.html?flow=fullset">
+      <img class="card-img" src="svg/card-fullset.svg" alt="Full Set" />
+      <div class="card-body">
+        <div class="card-title">Tạo Full Set</div>
+        <div class="card-desc">Tạo bộ 3 slide, quiz, hình ảnh</div>
+        <div class="badge badge-recommend">
+          <svg width="11" height="11" viewBox="0 0 12 12">
+            <polygon points="6,1 7.5,4.5 11,4.8 8.5,7.2 9.2,11 6,9 2.8,11 3.5,7.2 1,4.8 4.5,4.5" fill="#2e7d32" />
+          </svg>
+          KHUYẾN KHÍCH
+        </div>
+      </div>
+    </a>
+
+    <!-- Card 2: Tạo slide — bộ slide trong khung rừng -->
+    <a class="card" href="chatbot_ui.html?flow=slide">
+      <img class="card-img" src="svg/card-slide.svg" alt="Slide" />
+      <div class="card-body">
+        <div class="card-title">Tạo slide</div>
+        <div class="card-desc">Tạo slide theo nội dung của bạn</div>
+      </div>
+    </a>
+
+    <!-- Card 3: Tạo quiz — phiếu trắc nghiệm trong rừng -->
+    <a class="card" href="chatbot_ui.html?flow=quiz">
+      <img class="card-img" src="svg/card-quiz.svg" alt="Quiz" />
+      <div class="card-body">
+        <div class="card-title">Tạo quiz</div>
+        <div class="card-desc">Tạo quiz cho nội dung thi THPTQG tiếng anh</div>
+        <div class="badge badge-new">MỚI</div>
+      </div>
+    </a>
+
+    <!-- Card 4: Tạo hình ảnh — khung ảnh minh họa rừng + AI -->
+    <a class="card" href="chatbot_ui.html?flow=flashcard">
+      <img class="card-img" src="svg/card-flashcard.svg" alt="Flashcard" />
+      <div class="card-body">
+        <div class="card-title">Tạo flashcard</div>
+        <div class="card-desc">Tạo flashcard từ vựng và phát âm chuẩn cho bài giảng của bạn</div>
+      </div>
+    </a>
+  </div>
+</div>

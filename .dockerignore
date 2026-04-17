@@ -1,0 +1,40 @@
+# Exclude everything by default to minimize build context
+**
+
+# Include only runtime artifacts for this service
+!app/
+!app/**
+!utils/
+!utils/**
+!requirements.txt
+!Dockerfile
+!railway.toml
+!.env.example
+
+# Keep local/dev and metadata files out of images
+.git/
+.github/
+.vscode/
+.idea/
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.log
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+.venv/
+venv/
+ENV/
+env/
+.env
+.env.*
+!.env.example
+node_modules/
+dist/
+build/
+*.sqlite3

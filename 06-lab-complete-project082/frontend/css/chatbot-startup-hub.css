@@ -1,0 +1,168 @@
+/* Mirrors `main_hub.html` card grid inside the chat column (embedded). */
+.chat-startup-hub {
+  width: 100%;
+  max-width: 100%;
+  font-family: "Nunito", Inter, "Segoe UI", system-ui, sans-serif;
+}
+
+.chat-startup-hub .forest-page--embedded {
+  min-height: calc(100vh - 56px);
+  width: 100%;
+  background: linear-gradient(160deg, #c8e6c9 0%, #a5d6a7 20%, #81c784 40%, #b2dfdb 70%, #e0f2f1 100%);
+  padding: 0 0 64px 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0;
+  transition: box-shadow 0.25s ease;
+}
+
+.chat-startup-hub .forest-page--embedded::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(180deg, transparent, rgba(27, 94, 32, 0.13));
+  pointer-events: none;
+}
+
+.chat-startup-hub .trees-bg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.chat-startup-hub .hero-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 28px;
+  position: relative;
+  z-index: 2;
+}
+
+.chat-startup-hub .headline-area {
+  text-align: center;
+  padding-top: 0;
+  width: 100%;
+}
+
+.chat-startup-hub .startup-hub-instruction {
+  font-size: 18px;
+  color: #33691e;
+  font-weight: 600;
+  line-height: 1.35;
+  max-width: 36ch;
+  margin: 0 auto;
+  padding: 0 12px;
+}
+
+.chat-startup-hub .cards-row {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  padding: 28px 12px 8px;
+  flex-wrap: wrap;
+  align-items: stretch;
+  position: relative;
+  z-index: 1;
+}
+
+.chat-startup-hub button.card {
+  background: #fff;
+  border-radius: 24px;
+  padding: 0 0 28px 0;
+  width: 280px;
+  flex: 0 1 280px;
+  box-shadow: 0 10px 30px rgba(27, 94, 32, 0.12);
+  overflow: hidden;
+  transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  font: inherit;
+  border: none;
+  appearance: none;
+  -webkit-appearance: none;
+  text-align: left;
+  margin: 0;
+}
+
+.chat-startup-hub button.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(27, 94, 32, 0.18);
+}
+
+.chat-startup-hub button.card:focus-visible {
+  outline: 2px solid #2e7d32;
+  outline-offset: 3px;
+}
+
+.chat-startup-hub .card-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
+  border-radius: 24px 24px 0 0;
+  pointer-events: none;
+}
+
+.chat-startup-hub .card-body {
+  padding: 20px 20px 0 20px;
+}
+
+.chat-startup-hub .card-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #1b5e20;
+  margin-bottom: 8px;
+}
+
+.chat-startup-hub .card-desc {
+  font-size: 14.5px;
+  color: #558b2f;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.chat-startup-hub .badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 9px;
+  border-radius: 999px;
+  padding: 3px 11px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.chat-startup-hub .badge-recommend {
+  background: #e8f5e9;
+  color: #2e7d32;
+  border: 1.5px solid #a5d6a7;
+}
+
+.chat-startup-hub .badge-new {
+  background: #f1f8e9;
+  color: #558b2f;
+  border: 1.5px solid #c5e1a5;
+}
+
+/* Full-width row in messages column */
+.msg-row-startup-hub {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 0;
+}
+
+.msg-row-startup-hub .chat-startup-hub {
+  width: 100%;
+}

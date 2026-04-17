@@ -1,0 +1,51 @@
+services:
+  app:
+    build:
+      context: .
+      target: dev
+    container_name: teachly-app-dev
+    command: uvicorn src.api_server:app --host 0.0.0.0 --port 8000
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"
+    cpus: 1.5
+    mem_limit: 1g
+    volumes:
+      - ./src:/app/src
+      - ./frontend:/app/frontend
+      - ./backend:/app/backend
+      - teachly_data:/app/data
+      - teachly_output:/app/output
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/health')"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
+
+  app-prod:
+    profiles: ["prod"]
+    build:
+      context: .
+      target: prod
+    container_name: teachly-app-prod
+    env_file:
+      - .env
+    ports:
+      - "8001:8000"
+    volumes:
+      - teachly_data:/app/data
+      - teachly_output:/app/output
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/health')"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
+
+volumes:
+  teachly_data:
+  teachly_output:

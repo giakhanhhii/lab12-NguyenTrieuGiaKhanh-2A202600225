@@ -1,0 +1,13 @@
+:root {
+  /* Cùng một cột nội dung cho tin nhắn và thanh nhập */
+  --chat-content-width: min(920px, 95%);
+  --green: #4caf50;
+  --green-dark: #2e7d32;
+  --bg: #ffffff;
+  --panel: #ffffff;
+  --panel-2: #ffffff;
+  --text: #10233a;
+  --muted: #6a819b;
+  --bot: #e9f4ff;
+  --line: rgba(76, 175, 80, 0.15);
+}

@@ -1,0 +1,28 @@
+<svg viewBox="0 0 200 116" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="forestGrad3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#33691e" />
+      <stop offset="50%" stop-color="#2e7d32" />
+      <stop offset="100%" stop-color="#1b5e20" />
+    </linearGradient>
+  </defs>
+  <rect width="200" height="116" fill="url(#forestGrad3)" />
+  <ellipse cx="100" cy="128" rx="95" ry="48" fill="#1b5e20" opacity="0.5" />
+  <!-- Quiz card -->
+  <rect x="44" y="22" width="112" height="78" rx="8" fill="#f1f8e9" stroke="#558b2f" stroke-width="2" />
+  <text x="100" y="44" font-size="13" font-weight="800" text-anchor="middle" fill="#33691e" font-family="Nunito, sans-serif">?</text>
+  <line x1="54" y1="52" x2="146" y2="52" stroke="#a5d6a7" stroke-width="2" stroke-linecap="round" />
+  <!-- Options A B C -->
+  <circle cx="58" cy="64" r="7" fill="#e8f5e9" stroke="#43a047" stroke-width="1.5" />
+  <text x="58" y="68" font-size="9" font-weight="800" text-anchor="middle" fill="#2e7d32" font-family="sans-serif">A</text>
+  <rect x="72" y="60" width="66" height="8" rx="2" fill="#c8e6c9" />
+  <circle cx="58" cy="80" r="7" fill="#e8f5e9" stroke="#43a047" stroke-width="1.5" />
+  <text x="58" y="84" font-size="9" font-weight="800" text-anchor="middle" fill="#2e7d32" font-family="sans-serif">B</text>
+  <rect x="72" y="76" width="58" height="8" rx="2" fill="#c8e6c9" />
+  <circle cx="58" cy="96" r="7" fill="#43a047" stroke="#1b5e20" stroke-width="1.5" />
+  <text x="58" y="100" font-size="9" font-weight="800" text-anchor="middle" fill="#fff" font-family="sans-serif">C</text>
+  <rect x="72" y="92" width="62" height="8" rx="2" fill="#a5d6a7" />
+  <!-- Decorative leaves -->
+  <ellipse cx="24" cy="28" rx="12" ry="7" fill="#66bb6a" transform="rotate(-35 24 28)" opacity="0.5" />
+  <ellipse cx="178" cy="88" rx="11" ry="7" fill="#8bc34a" transform="rotate(20 178 88)" opacity="0.45" />
+</svg>
