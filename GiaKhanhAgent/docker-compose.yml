@@ -8,7 +8,7 @@ services:
     env_file:
       - .env
     ports:
-      - "8000:8000"
+      - "${HOST_PORT:-8010}:8000"
     cpus: 1.5
     mem_limit: 1g
     volumes:
@@ -34,7 +34,7 @@ services:
     env_file:
       - .env
     ports:
-      - "8001:8000"
+      - "${HOST_PORT_PROD:-8011}:8000"
     volumes:
       - teachly_data:/app/data
       - teachly_output:/app/output

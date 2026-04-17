@@ -1,6 +1,7 @@
 """Production-ready stateless FastAPI app for Day 12 Part 1."""
 from __future__ import annotations
 
+import json
 import logging
 import signal
 import time
@@ -32,8 +33,20 @@ def _utc_now_iso() -> str:
     return datetime.now(timezone.utc).isoformat()
 
 
+def _log_event(level: int, event: str, **fields) -> None:
+    payload = {
+        "event": event,
+        "timestamp": _utc_now_iso(),
+        "service": settings.app_name,
+        "environment": settings.environment,
+    }
+    payload.update(fields)
+    logger.log(level, json.dumps(payload, ensure_ascii=True))
+
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+    _log_event(logging.INFO, "startup_begin")
     redis_client = Redis.from_url(settings.redis_url, decode_responses=True)
     await redis_client.ping()
 
@@ -48,14 +61,14 @@ async def lifespan(app: FastAPI):
         monthly_budget_usd=settings.monthly_budget_usd,
     )
     APP_STATE["ready"] = True
-    logger.info("Application startup complete")
+    _log_event(logging.INFO, "startup_complete")
 
     try:
         yield
     finally:
         APP_STATE["ready"] = False
         await redis_client.close()
-        logger.info("Application shutdown complete")
+        _log_event(logging.INFO, "shutdown_complete")
 
 
 app = FastAPI(
@@ -76,10 +89,19 @@ app.add_middleware(
 
 @app.middleware("http")
 async def security_headers_middleware(request: Request, call_next):
+    started = time.time()
     response: Response = await call_next(request)
     response.headers["X-Content-Type-Options"] = "nosniff"
     response.headers["X-Frame-Options"] = "DENY"
     response.headers["Cache-Control"] = "no-store"
+    _log_event(
+        logging.INFO,
+        "http_request",
+        method=request.method,
+        path=request.url.path,
+        status=response.status_code,
+        duration_ms=round((time.time() - started) * 1000, 2),
+    )
     return response
 
 
@@ -135,8 +157,16 @@ async def ask_agent(
     try:
         answer = llm_ask(payload.question)
     except Exception as exc:
-        logger.exception("LLM call failed: %s", exc)
+        _log_event(logging.ERROR, "llm_call_failed", error=str(exc))
         raise HTTPException(status_code=502, detail="Failed to process question") from exc
+
+    _log_event(
+        logging.INFO,
+        "ask_completed",
+        user_id=payload.user_id,
+        rate_limit_remaining=rate_state["remaining"],
+        month_cost_usd=round(cost_state["current_month_cost_usd"], 6),
+    )
 
     return AskResponse(
         user_id=payload.user_id,
@@ -183,7 +213,7 @@ async def ready(request: Request) -> dict:
 
 
 def _handle_signal(signum, _frame):
-    logger.info("Received signal %s, starting graceful shutdown", signum)
+    _log_event(logging.INFO, "signal_received", signum=signum)
     APP_STATE["ready"] = False
 
 
