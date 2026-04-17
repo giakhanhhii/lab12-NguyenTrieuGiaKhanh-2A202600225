@@ -1,5 +1,7 @@
 # Day 12 Lab - Mission Answers
 
+**Student Name:** Nguyễn Triệu Gia Khánh - 2A202600225
+
 ## Part 1: Localhost vs Production
 
 ### Exercise 1.1: Anti-patterns found
